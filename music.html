@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cabin:wght@400..700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/9989115b8b.js" crossorigin="anonymous"></script>
+    
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    
+    <!-- U-Turntable -->
+    <link rel="stylesheet" href="./content/css/music.css">
+    <link rel="stylesheet" href="./content/css/override.css">
+    <script type="text/javascript" src="./scripts/music.js"></script>
+    <script type="text/javascript" src="./scripts/options.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            musicModule.init(options);
+        });
+    </script>
+</head>
+
+<body>
+    <div class="music-player align-top loading">
+        <div class="turntable">
+            <div class="cover loading">
+                <img />
+            </div>
+            <div class="arm-holder"></div>
+            <div class="arm"></div>
+            <div class="state">
+                <span class="fa-solid fa-pause"></span>
+                <span class="fa-solid fa-play"></span>
+            </div>
+        </div>
+        <div class="track-details">
+            <span class="title"></span>
+            <span class="artists"></span>
+        </div>
+    </div>
+</body>
+
+</html>
