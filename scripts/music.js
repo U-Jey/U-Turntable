@@ -10,11 +10,15 @@ var musicModule = (function () {
             // Sets the vertical alignment of the details block, centered by default. (null|"top"|"bottom")
             detailsAlign: null
         },
+
         /** The Pretzel resources path needed. */
         pretzel: Object.freeze({
+            // The relative path to the output file "Album Cover".
             cover: null,
+            // The relative path to the output file "Now Playing JSON Data".
             nowPlaying: null
         }),
+        
         /** The delay (ms) between each refresh. */
         syncDelay: 200
     });
