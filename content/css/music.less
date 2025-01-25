@@ -11,6 +11,7 @@
 }
 
 @keyframes text-move {
+
     0%,
     10%,
     90%,
@@ -250,6 +251,7 @@ body {
     }
 
     .track-details {
+        --details-border-width: 6px;
         margin: 12px 0;
         padding: 8px 16px;
         position: relative;
@@ -258,7 +260,8 @@ body {
         max-width: var(--text-max-width);
         height: 48px;
         background: var(--text-background);
-        border-right: 6px solid var(--main-color);
+        border: 0px solid var(--main-color);
+        border-right-width: var(--details-border-width);
         white-space: nowrap;
         overflow: hidden;
         display: flex;
@@ -266,16 +269,6 @@ body {
         transition: all ease-in-out .2s;
         transition-property: max-width, min-width, padding, margin;
         transition-delay: 0s;
-        
-        &::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: -32px;
-            bottom: 0;
-            width: 32px;
-            background: var(--text-background);
-        }
 
         .title {
             font-size: 22px;
@@ -299,6 +292,16 @@ body {
                 // (source: https://stackoverflow.com/a/78925060)
                 animation: text-move 12s linear infinite forwards;
             }
+        }
+    }
+
+    &.reverse {
+        flex-direction: row-reverse;
+
+        .track-details {
+            text-align: right;
+            border-right-width: 0px;
+            border-left-width: var(--details-border-width);
         }
     }
 
@@ -335,8 +338,15 @@ body {
             min-width: 0px;
             padding-left: 0px;
             padding-right: 0px;
-            margin-left: -6px;
             transition-delay: .2s;
+        }
+
+        &:not(.reverse) .track-details {
+            margin-left: calc(-1 * var(--details-border-width));
+        }
+
+        &.reverse .track-details {
+            margin-right: calc(-1 * var(--details-border-width));
         }
     }
 }

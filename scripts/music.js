@@ -3,6 +3,13 @@ var musicModule = (function () {
 
     /** The default options for this module. */
     const OPTIONS = Object.freeze({
+        /** The settings customising the alignment of several elements. */
+        display: {
+            // Revert the display order of the turntable and the details block.
+            reverse: false,
+            // Sets the vertical alignment of the details block, centered by default. (null|"top"|"bottom")
+            detailsAlign: null
+        },
         /** The Pretzel resources path needed. */
         pretzel: Object.freeze({
             cover: null,
@@ -203,6 +210,17 @@ var musicModule = (function () {
         }, _options.syncDelay);
     }
 
+    /** Renders the turntable by taking into account the available options. */
+    function render() {
+        if (_options.display.reverse) {
+            $musicPlayer.addClass("reverse");
+        }
+
+        if (_options.display.detailsAlign) {
+            $musicPlayer.addClass("align-" + _options.display.detailsAlign);
+        }
+    }
+
     /**
      * Initializes the module with the requested options.
      * 
@@ -225,6 +243,8 @@ var musicModule = (function () {
         }
 
         $.extend(_options, OPTIONS, options);
+
+        render();
         syncMusicPlayer();
 
         // TODO - Display the details on the left !! (reverse)
